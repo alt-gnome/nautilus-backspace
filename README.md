@@ -37,5 +37,5 @@ mkdir -p ~/.local/share/nautilus-python/extensions/
 ### 3. Устанавливаем расширение.
 
 ```shell
-wget -P ~/.local/share/nautilus-python/extensions/ https://raw.githubusercontent.com/fiersik/nautilus_backspace/main/Back.py
+wget -P ~/.local/share/nautilus-python/extensions/ https://raw.githubusercontent.com/alt-gnome-team/nautilus_backspace/main/Back.py
 ```

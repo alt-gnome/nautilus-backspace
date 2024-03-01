@@ -39,3 +39,24 @@ mkdir -p ~/.local/share/nautilus-python/extensions/
 ```shell
 wget -P ~/.local/share/nautilus-python/extensions/ https://raw.githubusercontent.com/alt-gnome-team/nautilus_backspace/main/Back.py
 ```
+
+### 4. Перезапускаем Nautilus
+
+```shell
+nautilus -q
+```
+
+## Настройка
+
+### Меняем сочетание:
+
+Открываем config
+```shell
+nano ~/.config/nautilus_backspace/config
+```
+
+Вставляем необходимое сочетание
+```ini
+[DEFAULT]
+shortcut = <Alt>Down
+```

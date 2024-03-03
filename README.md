@@ -28,22 +28,11 @@ apt-get install nautilus-python libnautilus-gir
 ```shell
 epm -i nautilus-python libnautilus-gir
 ```
-### 2. Создаём директорию для расширений.
+
+### 2. Устанавливаем расширение.
 
 ```shell
-mkdir -p ~/.local/share/nautilus-python/extensions/
-```
-
-### 3. Устанавливаем расширение.
-
-```shell
-wget -P ~/.local/share/nautilus-python/extensions/ https://raw.githubusercontent.com/alt-gnome-team/nautilus_backspace/main/Back.py
-```
-
-### 4. Перезапускаем Nautilus
-
-```shell
-nautilus -q
+curl -sSL https://raw.githubusercontent.com/alt-gnome-team/nautilus_backspace/main/install | sh
 ```
 
 ## Настройка

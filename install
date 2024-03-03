@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+reset="\e[m"
+boldgreen="\e[1;32m"
+boldred="\033[1;31m"
+
+extension_dir=~/.local/share/nautilus-python/extensions/
+config_dir=~/.config/nautilus_backspace/
+file="${extension_dir}Back.py"
+file_url=https://raw.githubusercontent.com/alt-gnome-team/nautilus_backspace/main/Back.py
+
+if [ -e $file ]; then
+    echo -e "${boldgreen}Обновление:${reset}"
+    rm $file
+    wget -P $extension_dir $file_url -q --show-progress
+    echo -e "${boldgreen}Обновлено.${reset}"
+else
+    echo -e "${boldgreen}Установка:${reset}"
+    mkdir -p $extension_dir
+    wget -P $extension_dir $file_url -q --show-progress
+    echo -e "${boldgreen}Установлено.${reset}"
+fi
+
+nautilus -q >/dev/null 2>&1

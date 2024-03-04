@@ -8,8 +8,6 @@ extension_dir=~/.local/share/nautilus-python/extensions/
 config_dir=~/.config/nautilus_backspace/
 file="${extension_dir}Back.py"
 
-cd ${0%/*}
-
 if [ -e $file ]; then
     echo -e "${boldgreen}Обновление:${reset}"
     rm $file

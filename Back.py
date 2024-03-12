@@ -24,19 +24,27 @@ gi.require_version("Nautilus", "4.0")
 gi.require_version("Gtk", "4.0")
 from gi.repository import GObject, Nautilus, Gtk
 
-path = os.path.expanduser("~/.config/nautilus_backspace/")
-os.makedirs(path, exist_ok=True)
+config_dir = "/etc/nautilus_backspace/"
+config_file = config_dir + "config"
+user_config_dir = os.path.expanduser("~/.config/nautilus_backspace/")
+user_config_file = user_config_dir + "config"
 
-config_file = path + "config"
+
 config = configparser.ConfigParser()
 
-if os.path.exists(config_file):
+if os.path.exists(user_config_file):
+    config.read(user_config_file)
+    print("user config")
+elif os.path.exists(config_file):
     config.read(config_file)
+    print("system config")
 else:
+    print("no config")
     config["DEFAULT"] = {
         "shortcut": "BackSpace"
     }
-    with open(config_file, "w") as file:
+    os.makedirs(user_config_dir, exist_ok=True)
+    with open(user_config_file, "w") as file:
         config.write(file)
 
 

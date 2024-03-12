@@ -1,0 +1,2 @@
+spec: .gear/nautilus-backspace.spec
+tar: @version@:. name=@name@-@version@

@@ -34,12 +34,9 @@ config = configparser.ConfigParser()
 
 if os.path.exists(user_config_file):
     config.read(user_config_file)
-    print("user config")
 elif os.path.exists(config_file):
     config.read(config_file)
-    print("system config")
 else:
-    print("no config")
     config["DEFAULT"] = {
         "shortcut": "BackSpace"
     }

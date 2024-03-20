@@ -15,6 +15,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+# Version: 0.4.1
 
 import os
 import configparser

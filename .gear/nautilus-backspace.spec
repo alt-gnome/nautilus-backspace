@@ -1,5 +1,5 @@
 Name: nautilus-backspace
-Version: 0.4.0
+Version: 0.4.1
 Release: alt1
 
 Summary: extension for configuring the backtrack combination for Gnome nautilus
@@ -25,7 +25,7 @@ the configuration file.
 файл конфигурации.
 
 %prep
-%setup -v
+%setup
 
 %install
 mkdir -p %buildroot%_datadir/nautilus-python/extensions/

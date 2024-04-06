@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<schemalist>
+
+    <schema path="/io/github/alt-gnome-team/nautilus-backspace/"
+        id="io.github.alt-gnome-team.nautilus-backspace">
+
+        <key name='back' type='s'>
+            <default>'BackSpace'</default>
+            <summary>shortcut to go back</summary>
+            <description>
+                keyboard shortcut to return to the previous directory in nautilus
+            </description>
+        </key>
+
+    </schema>
+
+</schemalist>

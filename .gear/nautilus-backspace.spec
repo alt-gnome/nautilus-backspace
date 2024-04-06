@@ -1,5 +1,5 @@
 Name: nautilus-backspace
-Version: 0.4.1
+Version: 0.5.0
 Release: alt1
 
 Summary: extension for configuring the backtrack combination for Gnome nautilus
@@ -17,12 +17,12 @@ Requires: libnautilus-gir
 %description
 The extension allows you to return to the previous directory in Nautilus by
 pressing the backspace button or another keyboard shortcut assigned through
-the configuration file.
+the GSettings.
 
 %description -l ru_RU.UTF-8
 Расширение позволяет возвращаться в предыдущую директорию в Nautilus по
 нажатию кнопки backspace или иного сочетания клавиш, назначенного через
-файл конфигурации.
+GSettings.
 
 %prep
 %setup
@@ -30,11 +30,14 @@ the configuration file.
 %install
 mkdir -p %buildroot%_datadir/nautilus-python/extensions/
 cp Back.py %buildroot%_datadir/nautilus-python/extensions/
-mkdir -p %buildroot%_sysconfdir/%name/
-cp config %buildroot%_sysconfdir/%name/
+mkdir -p %buildroot%_datadir/glib-2.0/schemas/
+cp io.github.alt-gnome-team.nautilus-backspace.gschema.xml %buildroot%_datadir/glib-2.0/schemas/
+
+%post
+glib-compile-schemas %_datadir/glib-2.0/schemas
 
 %files
 %_datadir/nautilus-python/extensions/Back.py
-%config(noreplace) %_sysconfdir/%name/config
+%_datadir/glib-2.0/schemas/io.github.alt-gnome-team.nautilus-backspace.gschema.xml
 
 %changelog

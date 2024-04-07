@@ -1,51 +1,88 @@
-# nautilus backspace
+<h1 align="center">
+    Nautilus backspace
+</h1>
+
+<p align="center">
+  <img alt="GitHub Release" src="https://img.shields.io/github/v/release/alt-gnome-team/nautilus-backspace">
+  <img alt="GitHub License" src="https://img.shields.io/github/license/alt-gnome-team/nautilus-backspace">
+</p>
+
+<p align="center">
+  Расширения для возврата назад в Nautilus по нажатию сочетания клавиш, назначенного через GSettings
+</p>
+
 
 > [!NOTE]
 > Идея принадлежит [riclc](https://github.com/riclc), но, увы, автор забросил свой аккаунт.
 
+## Установка из репозитория
 
-Расширение позволяет возвращаться в предыдущую директорию в Nautilus по нажатию кнопки backspace или иного сочетания клавиш, назначенного через файл конфигурации.
+[![Packaging status](https://repology.org/badge/vertical-allrepos/nautilus-backspace.svg)](https://repology.org/project/nautilus-backspace/versions)
 
-## Установка
-
-### 1. Устанавливаем зависимости.
-
-#### Debian/Ubuntu
-
+### ALT Sisyphus
 ```shell
-sudo apt-get install python-nautilus
+su -
+apt-get update
+apt-get install nautilus-backspace
 ```
 
-#### ALT Linux
 
+## Сборка из исходного кода
+
+```shell
+git clone https://github.com/alt-gnome-team/nautilus-backspace.git
+cd nautilus-backspace
+```
+
+### Зависимости
+
+#### ALT Sisyphus
 ```shell
 su -
 apt-get update
 apt-get install nautilus-python libnautilus-gir
 ```
-Или через epm:
 
+#### Fedora
 ```shell
-epm -i nautilus-python libnautilus-gir
+sudo dnf update
+sudo dnf install nautilus-python
 ```
 
-### 2. Устанавливаем расширение.
-
+#### Debian/Ubuntu
 ```shell
-curl -sSL https://raw.githubusercontent.com/alt-gnome-team/nautilus_backspace/main/install | sh
+sudo apt update
+sudo apt install python3-nautilus gir1.2-nautilus-4.0
 ```
+
+#### Arch Linux
+```shell
+sudo pacman -Sy python-nautilus
+```
+
+
+### Сборка
+
+#### Системная установка
+```
+sudo make
+sudo make schemas 
+```
+
+#### Пользовательская установка
+```
+make
+make schemas 
+```
+
 
 ## Настройка
 
-### Меняем сочетание:
-
-Открываем config
+### Смена сочетания 
 ```shell
-nano ~/.config/nautilus_backspace/config
+gsettings set io.github.alt-gnome-team.nautilus-backspace back '<Alt>Down'
 ```
-
-Вставляем необходимое сочетание
-```ini
-[DEFAULT]
-shortcut = <Alt>Down
+### Возврат к значению по умолчанию
+```shell
+gsettings reset io.github.alt-gnome-team.nautilus-backspace back
 ```

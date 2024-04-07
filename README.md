@@ -10,9 +10,6 @@
 > [!NOTE]
 > Идея принадлежит [riclc](https://github.com/riclc), но, увы, автор забросил свой аккаунт.
 
-
-Расширение позволяет возвращаться в предыдущую директорию в Nautilus по нажатию кнопки backspace или иного сочетания клавиш, назначенного через файл конфигурации.
-
 ## Установка из репозитория
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/nautilus-backspace.svg)](https://repology.org/project/nautilus-backspace/versions)

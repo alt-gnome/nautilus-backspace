@@ -3,6 +3,11 @@
 </h1>
 
 <p align="center">
+  <img alt="GitHub Release" src="https://img.shields.io/github/v/release/alt-gnome-team/nautilus-backspace">
+  <img alt="GitHub License" src="https://img.shields.io/github/license/alt-gnome-team/nautilus-backspace">
+</p>
+
+<p align="center">
   Расширения для возврата назад в Nautilus по нажатию сочетания клавиш, назначенного через GSettings
 </p>
 
@@ -50,6 +55,12 @@ sudo apt update
 sudo apt install python3-nautilus gir1.2-nautilus-4.0
 ```
 
+#### Arch Linux
+```shell
+sudo pacman -Sy python-nautilus
+```
+
+
 ### Сборка
 
 #### Системная установка
@@ -67,7 +78,11 @@ make schemas
 
 ## Настройка
 
-### Меняем сочетание:
+### Смена сочетания 
 ```shell
 gsettings set io.github.alt-gnome-team.nautilus-backspace back '<Alt>Down'
+```
+### Возврат к значению по умолчанию
+```shell
+gsettings reset io.github.alt-gnome-team.nautilus-backspace back
 ```

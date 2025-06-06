@@ -65,20 +65,20 @@ sudo pacman -Sy python-nautilus
 
 #### Системная установка
 ```
-sudo make
-sudo make schemas 
+sudo make install
+sudo make schemas
 ```
 
 #### Пользовательская установка
 ```
-make
-make schemas 
+make install
+make schemas
 ```
 
 
 ## Настройка
 
-### Смена сочетания 
+### Смена сочетания
 ```shell
 gsettings set io.github.alt-gnome-team.nautilus-backspace back '<Alt>Down'
 ```

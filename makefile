@@ -1,17 +1,32 @@
+PREFIX      ?= /usr
+DATAROOTDIR ?= $(PREFIX)/share
+
 ifeq ($(shell id -u), 0)
-	EXTENSION_DIR = /usr/share/nautilus-python/extensions
-	SCHEMA_DIR = /usr/share/glib-2.0/schemas
+	INSTALL_DATAROOTDIR := $(DATAROOTDIR)
 else
-	EXTENSION_DIR = ~/.local/share/nautilus-python/extensions
-	SCHEMA_DIR = ~/.local/share/glib-2.0/schemas
+	INSTALL_DATAROOTDIR := $(HOME)/.local/share
 endif
 
-install:
-	install -d $(EXTENSION_DIR)
-	install Back.py $(EXTENSION_DIR)
+EXTENSION_DIR := $(INSTALL_DATAROOTDIR)/nautilus-python/extensions
+SCHEMA_DIR    := $(INSTALL_DATAROOTDIR)/glib-2.0/schemas
 
-	install -d $(SCHEMA_DIR)
-	install io.github.alt-gnome-team.nautilus-backspace.gschema.xml $(SCHEMA_DIR)
+INSTALL      := install
+INSTALL_DATA := $(INSTALL) -m0644
+
+SCRIPT := Back.py
+SCHEMA := io.github.alt-gnome-team.nautilus-backspace.gschema.xml
+
+.PHONY: all install schemas
+
+all:
+	@echo "Available targets: install, schemas"
+
+install: $(SCRIPT) $(SCHEMA)
+	$(INSTALL) -d $(EXTENSION_DIR)
+	$(INSTALL_DATA) $(SCRIPT) $(EXTENSION_DIR)
+
+	$(INSTALL) -d $(SCHEMA_DIR)
+	$(INSTALL_DATA) $(SCHEMA) $(SCHEMA_DIR)/$(SCHEMA)
 
 schemas:
 	glib-compile-schemas $(SCHEMA_DIR)

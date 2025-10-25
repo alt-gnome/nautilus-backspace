@@ -30,7 +30,7 @@ shortcut = settings.get_string("back")
 def back():
     app = Gtk.Application.get_default()
     if not app.get_actions_for_accel(shortcut):
-        app.set_accels_for_action("slot.up", [shortcut])
+        app.set_accels_for_action("slot.back", [shortcut])
 
 class Back(GObject.GObject, Nautilus.InfoProvider):
     def __init__(self):
